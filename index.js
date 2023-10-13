@@ -2,10 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const formRoutes = require('./routes/formRoutes');
+require('dotenv').config();
 
 const app = express();
-const port = 3001;
-const dbUrl = 'mongodb://127.0.0.1:27017/mongo-test';
+const port = process.env.PORT;
+const dbUrl = process.env.MONGO_URI;
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
